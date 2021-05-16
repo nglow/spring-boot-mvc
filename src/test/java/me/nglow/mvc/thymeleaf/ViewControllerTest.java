@@ -28,7 +28,7 @@ public class ViewControllerTest {
 
     @Test
     public void hello() throws Exception {
-        mockMvc.perform(get("/hello"))
+        mockMvc.perform(get("/hi"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("hello"))
                 .andExpect(model().attribute("name", "nglow"))
@@ -37,7 +37,7 @@ public class ViewControllerTest {
 
     @Test
     public void helloSelenium() throws Exception {
-            HtmlPage page = webClient.getPage("/hello");
+            HtmlPage page = webClient.getPage("/hi");
             HtmlHeading1 h1 = page.getFirstByXPath("//h1");
             assertThat(h1.getTextContent()).isEqualToIgnoringCase("nglow");
     }
